@@ -1,0 +1,16 @@
+{
+  "name": "nhac-cua-toi",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env server.js",
+    "start": "node --env-file-if-exists=.env server.js",
+    "check": "node --check server.js && node --check public/app.js && node --check public/drive.js && node --check scripts/build-pages.js",
+    "test": "node --test",
+    "build:pages": "node scripts/build-pages.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

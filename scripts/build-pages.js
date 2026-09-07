@@ -1,0 +1,11 @@
+import { mkdir, cp, writeFile } from 'node:fs/promises';
+const apiKey=process.env.DRIVE_BROWSER_API_KEY?.trim();
+const folderId=process.env.DRIVE_FOLDER_ID?.trim()||'1xmor8nF56-i_UU3c5B7IOgdx5dgoUn5D';
+if(!apiKey) throw new Error('Set DRIVE_BROWSER_API_KEY to a browser key restricted to your GitHub Pages domain.');
+if(!/^[\w-]{10,150}$/.test(folderId)) throw new Error('Invalid DRIVE_FOLDER_ID');
+await mkdir('dist',{recursive:true});
+await cp('public','dist',{recursive:true});
+await cp('docs/SETUP.md','dist/guide.txt');
+await writeFile('dist/config.js',`window.LOV_CONFIG = ${JSON.stringify({source:'drive',apiKey,folderId})};\n`);
+await writeFile('dist/.nojekyll','');
+console.log('Static site built in dist/. Browser key is included in the public site; .env and backend are excluded.');
