@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>LoV Music — Âm nhạc là ở đây</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,8 +88,8 @@
     </div>
     <div class="player">
         <div class="now">
-            <div id="now-art" class="now-art"><i class="fa-solid fa-music" aria-hidden="true"></i></div>
-            <div><strong id="now-title">Chọn một bài hát</strong><small id="now-artist">Âm nhạc đang chờ bạn</small>
+            <button id="now-art" class="now-art" aria-label="Mở trình phát nhạc" aria-haspopup="dialog" aria-controls="expanded-player"><i class="fa-solid fa-music" aria-hidden="true"></i></button>
+            <div class="now-details" role="button" tabindex="0" aria-label="Mở trình phát nhạc" aria-haspopup="dialog" aria-controls="expanded-player"><strong id="now-title">Chọn một bài hát</strong><small id="now-artist">Âm nhạc đang chờ bạn</small>
             </div><button id="favorite" aria-label="Lưu bài hát"><i class="fa-solid fa-heart" aria-hidden="true"></i></button>
         </div>
         <div class="transport">
@@ -115,6 +115,17 @@
             id="save-folder">Lưu & tải thư viện</button><a href="./guide.txt" target="_blank" rel="noopener">Đọc hướng dẫn
             Google Drive & Supabase <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><small>Supabase chưa được kết nối. Bản này phát nhạc từ Drive; yêu thích và
             lịch sử được lưu trên trình duyệt.</small>
+    </dialog>
+    <dialog id="expanded-player" aria-label="Trình phát nhạc mở rộng">
+        <div class="expanded-top" id="player-drag-handle">
+            <button id="collapse-player" aria-label="Thu gọn trình phát" autofocus><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+            <div><span>ĐANG PHÁT TỪ THƯ VIỆN</span><strong>LoV Music</strong></div>
+            <button id="open-mobile-queue" aria-label="Mở danh sách phát" aria-pressed="false"><i class="fa-solid fa-list-ul" aria-hidden="true"></i></button>
+        </div>
+        <div id="expanded-content"></div>
+        <section id="lyrics-panel" hidden aria-label="Lời bài hát"><i class="fa-solid fa-align-left" aria-hidden="true"></i><h2>Giai điệu đang kể chuyện.</h2><p>Bài hát này chưa có lời.<br>Cứ thả mình vào âm nhạc nhé.</p></section>
+        <section id="mobile-queue" hidden aria-label="Danh sách phát"><div class="mobile-queue-heading"><h2>Danh sách phát</h2><span id="mobile-queue-count"></span></div><p class="queue-hint" id="queue-order-note">Theo thứ tự thư viện</p><div id="mobile-queue-tracks"></div></section>
+        <div class="expanded-footer"><span class="lov-player-signature" aria-label="LoV Music"><i class="fa-solid fa-compact-disc" aria-hidden="true"></i></span><button id="show-lyrics" aria-pressed="false"><i class="fa-solid fa-align-left" aria-hidden="true"></i><span>Lời bài hát</span></button><button id="show-volume" aria-label="Hiện âm lượng" aria-pressed="false"><i class="fa-solid fa-volume-high" aria-hidden="true"></i></button></div>
     </dialog>
     <script src="./config.js"></script>
     <script type="module" src="./app.js"></script>
