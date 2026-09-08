@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>LoV Music — Âm nhạc là ở đây</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="icon" type="image/png" href="./assets/logo-lov.png">
+    <meta name="theme-color" content="#0b1119">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <aside class="sidebar"><a class="brand lov-brand" href="./" aria-label="LoV Music — Trang chủ"><span class="logo-mark"><img src="./assets/logo-lov.png" alt="Logo LoV Music" width="1280" height="1280"></span><span>LoV Music<small>ÂM NHẠC LÀ Ở ĐÂY</small></span></a>
+        <nav><button class="nav active" data-view="home"><i class="fa-solid fa-house" aria-hidden="true"></i> <span>Trang chủ</span></button><button class="nav"
+                data-view="all"><i class="fa-solid fa-music" aria-hidden="true"></i> <span>Tất cả bài hát</span></button><button class="nav" data-view="favorites"><i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <span>Đã lưu</span><em id="fav-count">0</em></button><button class="nav" data-view="recent"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+                <span>Đã nghe gần đây</span></button></nav>
+        <div class="divider"></div>
+        <p class="eyebrow">THƯ VIỆN CỦA BẠN</p><button class="nav" data-view="all"><i class="fa-solid fa-folder-open" aria-hidden="true"></i> <span>Nhạc từ Google Drive</span><i
+                class="dot"></i></button><button class="nav" id="settings"><i class="fa-solid fa-gear" aria-hidden="true"></i> <span>Kết nối & cài đặt</span></button>
+        <div class="sidebar-bottom">
+            <div class="tiny-art"><i class="fa-solid fa-moon" aria-hidden="true"></i></div>
+            <p>Một chút nhạc,<br>một chút bình yên.</p><small>Không gian âm nhạc của riêng bạn.</small>
+        </div>
+    </aside>
+    <div class="shell">
+        <header><label class="search"><span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span><input id="search" placeholder="Tìm bài hát, nghệ sĩ..."
+                    aria-label="Tìm bài hát"><kbd>Ctrl K</kbd></label><span class="header-note">LOV MUSIC · YOUR SOUNDTRACK</span><button class="avatar" id="profile" aria-label="Cài đặt">L</button></header>
+        <div class="columns">
+            <main>
+                <div class="greeting">
+                    <div>
+                        <p class="eyebrow">ÂM NHẠC CHO MỖI NGÀY</p>
+                        <h1 id="heading">Chào mừng trở lại<span>!</span></h1>
+                        <p>Hôm nay bạn muốn nghe gì?</p>
+                    </div><span class="date"><i class="fa-solid fa-star" aria-hidden="true"></i> &nbsp; Cứ thả mình vào âm nhạc</span>
+                </div>
+                <section class="hero">
+                    <div class="hero-shade"></div>
+                    <div class="hero-content"><span class="pill"><i class="fa-solid fa-star" aria-hidden="true"></i> KHÔNG GIAN CỦA BẠN</span>
+                        <h2>Giai điệu hay.<br>Một ngày đẹp.</h2>
+                        <p>Để những bộn bề ở lại phía sau.<br>Bật bài nhạc bạn yêu, tận hưởng phút giây này.</p>
+                        <div class="hero-actions"><button class="primary" id="hero-play"><i class="fa-solid fa-play" aria-hidden="true"></i> &nbsp; Bắt đầu
+                                nghe</button><button class="secondary" id="hero-library">Khám phá thư viện <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                    <div class="hero-caption">slow down &<br><i>feel the music.</i></div><span class="hero-bottom">THE
+                        EVERYDAY COLLECTION &nbsp; / &nbsp; VOL. 01</span>
+                </section>
+                <section class="library">
+                    <div class="section-title">
+                        <h2 id="section-heading">Dành cho bạn</h2><div class="library-actions"><button id="layout-toggle" aria-label="Chuyển sang danh sách" title="Chuyển sang danh sách" aria-pressed="false"><i class="fa-solid fa-list" aria-hidden="true"></i><span>Danh sách</span></button><button id="refresh"><i class="fa-solid fa-repeat" aria-hidden="true"></i> &nbsp; Làm mới thư
+                            viện</button></div>
+                    </div>
+                    <p id="search-summary" role="status" hidden></p><div id="connection" class="connection" role="status"></div>
+                    <p id="saved-note" class="saved-note" hidden>Những bài bạn đã lưu trên trình duyệt này. Nhạc vẫn phát từ Google Drive, chưa lưu để nghe ngoại tuyến.</p><div id="cards" class="cards"></div>
+                </section>
+                <section class="moods">
+                    <div class="section-title">
+                        <h2>Một chút cảm hứng</h2><span>Chọn nhạc theo cách của bạn</span>
+                    </div>
+                    <div class="mood-grid"><button data-query="chill" class="mood m1"><span><i class="fa-solid fa-mug-hot" aria-hidden="true"></i></span>
+                            <div>Chậm lại một chút<small>Tìm những giai điệu chill</small></div><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </button><button data-query="piano" class="mood m2"><span><i class="fa-solid fa-moon" aria-hidden="true"></i></span>
+                            <div>Góc tập trung<small>Tìm âm thanh piano</small></div><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </button><button data-query="" class="mood m3"><span><i class="fa-solid fa-heart" aria-hidden="true"></i></span>
+                            <div>Bộ sưu tập của bạn<small>Mở những bài đã lưu</small></div><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </button></div>
+                </section>
+                <footer>LoV Music · Âm nhạc là ở đây. <span><i class="fa-solid fa-music" aria-hidden="true"></i></span></footer>
+            </main>
+            <aside class="queue">
+                <div class="section-title">
+                    <div>
+                        <h2>Danh sách phát</h2>
+                        <p id="queue-count">Chưa có bài hát</p>
+                    </div><span class="queue-icon"><i class="fa-solid fa-list-ul" aria-hidden="true"></i></span>
+                </div>
+                <div id="queue-list"></div>
+                <div class="queue-bottom"><i class="dot"></i> Nhạc từ Google Drive</div>
+            </aside>
+        </div>
+    </div>
+    <div class="player">
+        <div class="now">
+            <button id="now-art" class="now-art" aria-label="Mở trình phát nhạc" aria-haspopup="dialog" aria-controls="expanded-player"><i class="fa-solid fa-music" aria-hidden="true"></i></button>
+            <div class="now-details" role="button" tabindex="0" aria-label="Mở trình phát nhạc" aria-haspopup="dialog" aria-controls="expanded-player"><strong id="now-title">Chọn một bài hát</strong><small id="now-artist">Âm nhạc đang chờ bạn</small>
+            </div><button id="favorite" aria-label="Lưu bài hát"><i class="fa-solid fa-heart" aria-hidden="true"></i></button>
+        </div>
+        <div class="transport">
+            <div class="transport-buttons"><button id="shuffle" aria-label="Phát ngẫu nhiên"
+                    aria-pressed="false"><i class="fa-solid fa-shuffle" aria-hidden="true"></i></button><button id="prev" aria-label="Bài trước"><i class="fa-solid fa-backward-step" aria-hidden="true"></i></button><button id="play"
+                    class="play" aria-label="Phát nhạc"><i class="fa-solid fa-play" aria-hidden="true"></i></button><button id="next"
+                    aria-label="Bài tiếp theo"><i class="fa-solid fa-forward-step" aria-hidden="true"></i></button><button id="repeat" aria-label="Lặp lại"
+                    aria-pressed="false"><i class="fa-solid fa-repeat" aria-hidden="true"></i></button></div>
+            <div class="timeline"><span id="elapsed">0:00</span><input id="seek" type="range" min="0" max="100"
+                    value="0" aria-label="Tua bài hát"><span id="duration">0:00</span></div>
+        </div>
+        <div class="volume"><span><i class="fa-solid fa-music" aria-hidden="true"></i></span><button id="mute" aria-label="Tắt tiếng"><i class="fa-solid fa-volume-high" aria-hidden="true"></i></button><input id="volume"
+                type="range" min="0" max="1" step="0.01" value="0.7" aria-label="Âm lượng"></div>
+    </div><audio id="audio" preload="metadata"></audio>
+    <div id="toast" role="status"></div>
+    <dialog id="config">
+        <form method="dialog"><button class="close" aria-label="Đóng"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></form><span class="eyebrow">THƯ VIỆN ÂM
+            NHẠC</span>
+        <h2>Kết nối Google Drive</h2>
+        <p>Dán link thư mục đã chia sẻ công khai. <span id="source-description">API key được cấu hình riêng trên server.</span>
+        </p><label>Link hoặc ID thư mục<input id="folder-input"
+                placeholder="https://drive.google.com/drive/folders/..."></label><button class="primary"
+            id="save-folder">Lưu & tải thư viện</button><a href="./guide.txt" target="_blank" rel="noopener">Đọc hướng dẫn
+            Google Drive & Supabase <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a><small>Supabase chưa được kết nối. Bản này phát nhạc từ Drive; yêu thích và
+            lịch sử được lưu trên trình duyệt.</small>
+    </dialog>
+    <dialog id="expanded-player" aria-label="Trình phát nhạc mở rộng">
+        <div class="expanded-top" id="player-drag-handle">
+            <button id="collapse-player" aria-label="Thu gọn trình phát" autofocus><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+            <div><span>ĐANG PHÁT TỪ THƯ VIỆN</span><strong>LoV Music</strong></div>
+            <button id="open-mobile-queue" aria-label="Mở danh sách phát" aria-pressed="false"><i class="fa-solid fa-list-ul" aria-hidden="true"></i></button>
+        </div>
+        <div id="expanded-content"></div>
+        <section id="lyrics-panel" hidden aria-label="Lời bài hát"><i class="fa-solid fa-align-left" aria-hidden="true"></i><h2>Giai điệu đang kể chuyện.</h2><p>Bài hát này chưa có lời.<br>Cứ thả mình vào âm nhạc nhé.</p></section>
+        <section id="mobile-queue" hidden aria-label="Danh sách phát"><div class="mobile-queue-heading"><h2>Danh sách phát</h2><span id="mobile-queue-count"></span></div><p class="queue-hint" id="queue-order-note">Theo thứ tự thư viện</p><div id="mobile-queue-tracks"></div></section>
+        <div class="expanded-footer"><span class="lov-player-signature" aria-label="LoV Music"><i class="fa-solid fa-compact-disc" aria-hidden="true"></i></span><button id="show-lyrics" aria-pressed="false"><i class="fa-solid fa-align-left" aria-hidden="true"></i><span>Lời bài hát</span></button><button id="show-volume" aria-label="Hiện âm lượng" aria-pressed="false"><i class="fa-solid fa-volume-high" aria-hidden="true"></i></button></div>
+    </dialog>
+    <script src="./config.js"></script>
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>
